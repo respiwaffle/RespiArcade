@@ -9,7 +9,7 @@ Priority for matching:
 
 const comments = {
     singleLine: /\/\/.*$/gm,
-    multiLine: /\/\*.*\*\//g // still doesn't quite work over multiple lines
+    multiLine: /\/\*[\s\S]*\*\//g
 }
 
 const dataTypes = {
