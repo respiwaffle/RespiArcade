@@ -13,7 +13,7 @@ const comments = {
 }
 
 const dataTypes = {
-    string: /(['"])(?:.*(?!\\\1))*\1/g, // Still doesn't quite work. See https://regex101.com/r/0TojFo/4/
+    string: /(["'])(\1|[\s\S]*?([^\\]\1))/g,
     variable: /[_a-z][_a-z\d]*/gi,
     number: /\d+(\.\d+)?/g,
     boolean: /true|false/g
