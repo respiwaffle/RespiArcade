@@ -15,6 +15,6 @@ const comments = {
 const tokens = {
     string: /(["'])(\1|[\s\S]*?([^\\]\1))/g,
     variable: /[_a-z][_a-z\d]*/gi,
-    number: /\d+(\.\d+)?/g,
+    number: /\d+(\.\d+)?([+-]?e\d+)?/g,
     boolean: /true|false/g
 }
