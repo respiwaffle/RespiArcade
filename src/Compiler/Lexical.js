@@ -18,10 +18,15 @@ const strings = {
     multiLine: /"{3}[\s\S]*"{3}/g
 }
 
-const keywords = ['if', 'elseif', 'else', 'for', 'while', 'break', 'continue', 'function', 'return']
-
-const tokens = {
-    variable: /[_a-z][_a-z\d]*/gi,
-    number: /\d+(\.\d+)?([+-]?e\d+)?/g,
-    boolean: /true|false/g
-}
+// Array so that some token matches will have priority over others
+const tokens = [
+    { keywords: /(\W|^)(if|elseif|else|for|while|break|continue|function|return)(\W|$)/gm },
+    {
+        number: /\d+(\.\d+)?([+-]?e\d+)?/g,
+        variable: /[_a-z][_a-z\d]*/gi,
+        boolean: /true|false/g
+    },
+    {
+        operator: /(\+|-|\/|\*)/g
+    }
+]
